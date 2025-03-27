@@ -2,25 +2,30 @@
 
 public abstract class Kontener
 {
-    private double masaLadunkuWKg;
-    private double wysokoscWCm;
-    private double wagaWlasnaWKg;
-    private double glebokoscWCm;
-    //wtf
-    private string numerKontenera;
+    protected double masaLadunkuWKg  { get; set; }
+    protected double wysokoscWCm { get; set; }
+    protected double wagaWlasnaWKg { get; set; }
+    protected double glebokoscWCm { get; set; }
     
-    private double maxLadownoscWKg;
+    protected NumerSeryjny numerKontenera  { get; set; }
+    protected double maxLadownoscWKg { get; set; }
+    protected Rodzaj rodzaj  { get; set; }
 
-
+    protected string nazwaLadunku { get; set;}
     
-    public abstract void OproznijLadunek();
-
-    public void ZaladujKontener(double masaLadunku)
+    public Kontener(double wysokoscWCm, double wagaWlasnaWKg, double glebokoscWCm, double maxLadownoscWKg)
     {
-        if (masaLadunku>this.maxLadownoscWKg)
-        {
-            throw new OverfillException();
-        }
+        this.wysokoscWCm = wysokoscWCm;
+        this.wagaWlasnaWKg = wagaWlasnaWKg;
+        this.glebokoscWCm = glebokoscWCm;
+        this.maxLadownoscWKg = maxLadownoscWKg;
     }
 
+
+    public void OproznijLadunek()
+    {
+        masaLadunkuWKg = 0;
+    }
+
+    public abstract void ZaladujKontener(double masaLadunku, string nazwaLadunkuIn);
 }
