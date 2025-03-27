@@ -23,7 +23,7 @@ public abstract class Kontener
         this.maxLadownoscWKg = maxLadownoscWKg;
         this.nazwaLadunku = "Brak ładunku";
     }
-
+    
 
     public virtual void OproznijLadunek()
     {
@@ -44,4 +44,17 @@ public abstract class Kontener
     {
         return numerKontenera;
     }
+    
+    public override string ToString()
+    {
+        return $"Numer kontenera: {this.numerKontenera}\n" +
+               $"Rodzaj kontenera: {this.rodzaj}\n" +
+               $"Wysokość: {this.wysokoscWCm} cm\n" +
+               $"Waga własna: {this.wagaWlasnaWKg} kg\n" +
+               $"Głębokość: {this.glebokoscWCm} cm\n" +
+               $"Maksymalna ładowność: {this.maxLadownoscWKg} kg\n" +
+               $"Masa ładunku: {this.masaLadunkuWKg} kg\n" +
+               $"Nazwa ładunku: {this.nazwaLadunku}";
+    }
+    
 }
