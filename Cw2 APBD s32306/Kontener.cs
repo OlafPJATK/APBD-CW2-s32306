@@ -2,16 +2,17 @@
 
 public abstract class Kontener
 {
-    protected double masaLadunkuWKg {  get; set; }
-    protected double wysokoscWCm { get; set; }
-    protected double wagaWlasnaWKg { get; set; }
-    protected double glebokoscWCm { get; set; }
+    public double masaLadunkuWKg { get; protected set; }
+    public double wysokoscWCm { get;protected set; }
+    public double wagaWlasnaWKg { get; protected set; }
+    public double glebokoscWCm { get;protected  set; }
     
-    protected NumerSeryjny numerKontenera  { get; set; }
-    protected double maxLadownoscWKg { get; set; }
-    protected Rodzaj rodzaj  { get; set; }
+    public NumerSeryjny numerKontenera  { get; protected set; }
+    public double maxLadownoscWKg { get; protected set; }
+    public Rodzaj rodzaj  { get; protected  set; }
 
-    protected string nazwaLadunku { get; set;}
+    public string nazwaLadunku { get; protected set;}
+    
     
     
     public Kontener(double wysokoscWCm, double wagaWlasnaWKg, double glebokoscWCm, double maxLadownoscWKg)
@@ -20,12 +21,14 @@ public abstract class Kontener
         this.wagaWlasnaWKg = wagaWlasnaWKg;
         this.glebokoscWCm = glebokoscWCm;
         this.maxLadownoscWKg = maxLadownoscWKg;
+        this.nazwaLadunku = "Brak ładunku";
     }
 
 
-    public void OproznijLadunek()
+    public virtual void OproznijLadunek()
     {
         masaLadunkuWKg = 0;
+        nazwaLadunku = "Pusty Kontener";
     }
 
     public virtual void ZaladujKontener(double masaLadunku, string nazwaLadunkuIn)
