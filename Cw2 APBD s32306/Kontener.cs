@@ -2,7 +2,7 @@
 
 public abstract class Kontener
 {
-    protected double masaLadunkuWKg  { get; set; }
+    protected double masaLadunkuWKg {  get; set; }
     protected double wysokoscWCm { get; set; }
     protected double wagaWlasnaWKg { get; set; }
     protected double glebokoscWCm { get; set; }
@@ -12,6 +12,7 @@ public abstract class Kontener
     protected Rodzaj rodzaj  { get; set; }
 
     protected string nazwaLadunku { get; set;}
+    
     
     public Kontener(double wysokoscWCm, double wagaWlasnaWKg, double glebokoscWCm, double maxLadownoscWKg)
     {
@@ -27,5 +28,17 @@ public abstract class Kontener
         masaLadunkuWKg = 0;
     }
 
-    public abstract void ZaladujKontener(double masaLadunku, string nazwaLadunkuIn);
+    public virtual void ZaladujKontener(double masaLadunku, string nazwaLadunkuIn)
+    {
+        if (masaLadunku>maxLadownoscWKg)
+        {
+            throw new OverfillException();
+        }
+    }
+
+
+    public NumerSeryjny GetnumerKontenera()
+    {
+        return numerKontenera;
+    }
 }

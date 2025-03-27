@@ -17,6 +17,7 @@ public class KonterNaPlynyL : Kontener, IHazardNotifier
 
     public override void ZaladujKontener(double masaLadunku, string nazwaLadunkuIn)
     {
+        base.ZaladujKontener(masaLadunku,nazwaLadunkuIn);
         //tu sprawdzenie listy niebezpiecznych ladunkwo w rozszerzonej wersji
         if (nazwaLadunkuIn.ToLower().Equals("Paliwo".ToLower()))
         {
@@ -25,11 +26,6 @@ public class KonterNaPlynyL : Kontener, IHazardNotifier
         else
         {
             isSafe = true;
-        }
-        
-        if (masaLadunku>maxLadownoscWKg)
-        {
-            throw new OverfillException();
         }
         
         if (!isSafe)
